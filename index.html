@@ -828,7 +828,13 @@
                         <i class="fa-solid fa-desktop"></i> Modulo Bineo
                     </div>
                     <div class="tools-menu-item" onclick="changeToolView(event, 'inventario')">
-                        <i class="fa-solid fa-boxes-stacked"></i> Sistema de Inventario
+                        <i class="fa-solid fa-boxes-stacked"></i> Smart
+                    </div>
+                    <div class="tools-menu-item" onclick="changeToolView(event, 'recepcion')">
+                        <i class="fa-solid fa-boxes-stacked"></i> Recepcion
+                    </div>
+                    <div class="tools-menu-item" onclick="changeToolView(event, 'Devolucion')">
+                        <i class="fa-solid fa-boxes-stacked"></i>Devolucion
                     </div>
                 </div>
 
@@ -948,6 +954,36 @@
                 viewer.innerHTML = `
                     <h3>SmartISP</h3>
                     <p>En este video aprenderás lo básico sobre SmartISP. Haz clic en reproducir para comenzar.</p>
+                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
+                        <i class="fa-solid fa-boxes-stacked" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
+                        <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
+                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                    </div>
+                `;
+            } else if (view === 'recepcion') {
+                viewer.innerHTML = `
+                    <h3>Recepcion</h3>
+                    <p>En este video aprenderás lo básico sobre Recepcion. Haz clic en reproducir para comenzar.</p>
+                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
+                        <i class="fa-solid fa-boxes-stacked" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
+                        <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
+                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                    </div>
+                `;
+            } else if (view === 'Devolucion') {
+                viewer.innerHTML = `
+                    <h3>Devolucion</h3>
+                    <p>En este video aprenderás lo básico sobre Devolucion. Haz clic en reproducir para comenzar.</p>
+                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
+                        <i class="fa-solid fa-boxes-stacked" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
+                        <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
+                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                    </div>
+                `;
+            } else if (view === 'Devolucion') {
+                viewer.innerHTML = `
+                    <h3>Devolucion</h3>
+                    <p>En este video aprenderás lo básico sobre Devolucion. Haz clic en reproducir para comenzar.</p>
                     <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
                         <i class="fa-solid fa-boxes-stacked" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
                         <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
