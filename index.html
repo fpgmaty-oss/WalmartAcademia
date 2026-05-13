@@ -1359,22 +1359,318 @@
                 `;
             } else if (view === 'Devolucion') {
                 viewer.innerHTML = `
-                    <h3>Devolucion</h3>
-                    <p>En este video aprenderás lo básico sobre Devolucion. Haz clic en reproducir para comenzar.</p>
-                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
-                        <i class="fa-solid fa-boxes-stacked" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
-                        <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
-                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <h3>Proceso de Devolución</h3>
+                        <span style="background:var(--primary-blue); color:white; padding:4px 10px; border-radius:12px; font-size:0.85rem;">19 Pasos</span>
                     </div>
-                `;
-            } else if (view === 'Devolucion') {
-                viewer.innerHTML = `
-                    <h3>Devolucion</h3>
-                    <p>En este video aprenderás lo básico sobre Devolucion. Haz clic en reproducir para comenzar.</p>
-                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
-                        <i class="fa-solid fa-boxes-stacked" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
-                        <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
-                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                    <p style="margin-bottom: 2rem; color:var(--text-muted);">A continuación se detalla el paso a paso para realizar una devolución. Añade las instrucciones correspondientes en cada paso.</p>
+                    
+                    <div class="steps-container">
+                        <!-- Paso 1 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 1</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065331.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 1">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Dirigete a la zona de "Terminal Portatil"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 2</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065353.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 2">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Presiona Enter para continuar]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 3</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065406.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 3">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Selecciona "Proceso de deposito"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 4</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065418.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 4">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Luego presiona "Registra Mercaderia"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 5 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 5</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065437.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 5">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Tenemos que seleccionar la division de lo que queremos realizar la devolucion, ejemplo: Si fueran envases de bebida
+                                        debemos seleccionar la Div 28]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 6 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 6</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065508.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 6">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Despues presionamos enter hasta llegar a "RCL" que es Reclamo]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 7 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 7</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065820.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 7">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Presionamos  el numero 2]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 8 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 8</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065835.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 8">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Numero 4:  "Reclamo mercancia"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 9 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 9</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065848.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 9">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Luego Numero: 1  "Defectos"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 10 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 10</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 065900.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 10">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Presionamos F9 para comenzar a ingresar los datos de la devolucion]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 11 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 11</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090048.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 11">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Al ingresar un item de algun proveedor este detectara automaticamente de que proveedor es]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 12 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 12</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090113.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 12">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Lo que llevara a seleccionar - presionamos Y para confirmar]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 13 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 13</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090127.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 13">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Nuevamente "Y" para confirmar]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 14 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 14</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090257.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 14">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Seguimos ingresando items]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 15 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 15</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090314.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 15">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Al finalizar, presionamos F5 y mostrara este mensaje en el cual debemos presionar "Y"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 16 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 16</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090325.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 16">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Presionamos numero "2" y "Y"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 17 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 17</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090335.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 17">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Escribir "Y" para confirmar y "f5" para finalizar]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 18 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 18</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090349.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 18">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Luego apretamos "y" para autorizar y nuevamente "y" para confirmar, f5 para finalizar]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 19 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 19</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Captura de pantalla 2026-05-13 090400.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 19">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Finalmente rellanmos los datos del transportista y confirmamos con "ENTER", luego saldra un mensaje y comenzaran a imprimirse las facturas de devolucion.]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 `;
             } else if (view === 'glosarioPBI') {
