@@ -639,6 +639,123 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* =========================================
+           BIBLIOTECA VIEW
+           ========================================= */
+        .biblioteca-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 5%;
+        }
+        .biblioteca-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 1rem;
+        }
+        .biblioteca-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .bib-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            text-align: center;
+        }
+        .bib-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .bib-card.active {
+            border-color: var(--primary-blue);
+            background: rgba(0,113,206,0.04);
+        }
+        .bib-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #e53935, #c62828);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        .bib-card-title {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+        .bib-card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            background: rgba(0,113,206,0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .pdf-viewer-wrap {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: none;
+        }
+        .pdf-viewer-wrap.visible { display: block; }
+        .pdf-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: #fff;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .pdf-toolbar h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pdf-dl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--secondary-yellow);
+            color: var(--text-main);
+            padding: 0.45rem 1.1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .pdf-dl-btn:hover { background: var(--yellow-hover); transform: scale(1.03); }
+        .pdf-frame {
+            width: 100%;
+            height: 85vh;
+            border: none;
+            display: block;
+        }
     </style>
 </head>
 
@@ -651,9 +768,9 @@
             Academia
         </div>
         <ul class="navbar-menu">
-            <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#" onclick="irAInicio(); return false;"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="#"><i class="fa-solid fa-book"></i> Mis Módulos</a></li>
-            <li><a href="#"><i class="fa-solid fa-folder-open"></i> Biblioteca</a></li>
+            <li><a href="#" onclick="abrirBiblioteca(); return false;"><i class="fa-solid fa-folder-open"></i> Biblioteca</a></li>
         </ul>
         <div class="user-profile">
             <i class="fa-solid fa-circle-user"></i>
@@ -855,6 +972,39 @@
         </div>
     </div>
 
+    <!-- BIBLIOTECA VIEW -->
+    <div id="biblioteca-view" style="display:none;">
+        <div class="biblioteca-container">
+            <div class="biblioteca-header">
+                <button class="btn-back" onclick="irAInicio()" title="Volver al Inicio"><i class="fa-solid fa-arrow-left"></i></button>
+                <div>
+                    <h2 style="color:var(--primary-dark); font-size:1.6rem;"><i class="fa-solid fa-folder-open" style="color:var(--secondary-yellow); margin-right:8px;"></i>Biblioteca</h2>
+                    <p style="color:var(--text-muted); font-size:0.88rem; margin-top:2px;">Documentos y recursos de consulta del departamento.</p>
+                </div>
+            </div>
+
+            <!-- Tarjetas de documentos -->
+            <div class="biblioteca-cards">
+                <div class="bib-card" id="bib-card-glosario" onclick="abrirDocBiblioteca('glosarioPBI', this)">
+                    <div class="bib-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <span class="bib-card-title">Glosario PBI WIC</span>
+                    <span class="bib-card-tag">PDF</span>
+                </div>
+            </div>
+
+            <!-- Visor de PDF -->
+            <div class="pdf-viewer-wrap" id="pdf-viewer-wrap">
+                <div class="pdf-toolbar">
+                    <h4 id="pdf-title"><i class="fa-solid fa-file-pdf"></i> Documento</h4>
+                    <a id="pdf-download-btn" href="#" download class="pdf-dl-btn">
+                        <i class="fa-solid fa-download"></i> Descargar
+                    </a>
+                </div>
+                <iframe id="pdf-frame" class="pdf-frame" src="" title="Visor PDF"></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
@@ -990,7 +1140,60 @@
                         <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
                     </div>
                 `;
+            } else if (view === 'glosarioPBI') {
+                viewer.innerHTML = `
+                    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
+                        <div>
+                            <h3 style="color:var(--primary-dark); margin-bottom:0.2rem;">
+                                <i class="fa-solid fa-file-pdf" style="color:#e53935; margin-right:8px;"></i>Glosario PBI WIC
+                            </h3>
+                            <p style="color:var(--text-muted); font-size:0.88rem;">Documento oficial del programa WIC. Puedes navegar, hacer zoom y descargar desde el visor.</p>
+                        </div>
+                        <a href="Glosario PBI WIC.pdf" download style="display:inline-flex; align-items:center; gap:6px; background:var(--primary-blue); color:#fff; padding:0.5rem 1.2rem; border-radius:20px; font-weight:600; font-size:0.9rem; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='var(--primary-dark)'" onmouseout="this.style.background='var(--primary-blue)'">
+                            <i class="fa-solid fa-download"></i> Descargar PDF
+                        </a>
+                    </div>
+                    <div style="width:100%; height:680px; border-radius:10px; overflow:hidden; border:2px solid #eaeaea; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+                        <iframe src="Glosario PBI WIC.pdf" style="width:100%; height:100%; border:none;" title="Glosario PBI WIC"></iframe>
+                    </div>
+                `;
             }
+        }
+
+        function abrirBiblioteca() {
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('tools-view').style.display = 'none';
+            document.getElementById('biblioteca-view').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function irAInicio() {
+            document.getElementById('tools-view').style.display = 'none';
+            document.getElementById('biblioteca-view').style.display = 'none';
+            document.getElementById('home-view').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        const bibDocs = {
+            glosarioPBI: {
+                titulo: 'Glosario PBI WIC',
+                src: 'Glosario PBI WIC.pdf'
+            }
+        };
+
+        function abrirDocBiblioteca(id, card) {
+            // Marcar tarjeta activa
+            document.querySelectorAll('.bib-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+
+            const doc = bibDocs[id];
+            const wrap = document.getElementById('pdf-viewer-wrap');
+            document.getElementById('pdf-title').innerHTML = '<i class="fa-solid fa-file-pdf"></i> ' + doc.titulo;
+            document.getElementById('pdf-frame').src = doc.src;
+            document.getElementById('pdf-download-btn').href = doc.src;
+            document.getElementById('pdf-download-btn').download = doc.titulo + '.pdf';
+            wrap.classList.add('visible');
+            wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     </script>
 </body>
