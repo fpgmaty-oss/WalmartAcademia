@@ -1033,7 +1033,7 @@
                     <i class="fa-solid fa-book-open"></i>
                 </div>
                 <div class="stat-info">
-                    <h3>2</h3>
+                    <h3>3</h3>
                     <p>Módulos Asignados</p>
                 </div>
             </div>
@@ -1119,6 +1119,28 @@
                         <p class="module-desc">Guía práctica sobre los sistemas, aplicaciones y portales que utilizarás
                             en
                             tu día a día operativo.</p>
+                        <div class="module-footer">
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text">0% Completado</span>
+                            </div>
+                            <button class="btn-start" onclick="iniciarModulo(this)">Iniciar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="module-card">
+                    <div class="module-img bg-pattern-2">
+                        <i class="fa-solid fa-toolbox"></i>
+                    </div>
+                    <div class="module-content">
+                        <span class="module-tag">Mantenimiento</span>
+                        <h3 class="module-title">3. Varios</h3>
+                        <p class="module-desc">Guías de mantenimiento, solución de problemas y otros procesos útiles,
+                            como el arreglo de la balanza de pan.</p>
                         <div class="module-footer">
                             <div class="progress-container">
                                 <div class="progress-bar">
@@ -1303,6 +1325,38 @@
         </div>
     </div>
 
+    <!-- VISTA DE VARIOS -->
+    <div id="varios-view" style="display: none;">
+        <div class="tools-view-container">
+            <div class="tools-header">
+                <button class="btn-back" onclick="goBackFromVarios()" title="Volver al Inicio"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <h2>Módulo: Varios</h2>
+            </div>
+
+            <div class="tools-content">
+                <!-- Submenú lateral -->
+                <div class="tools-menu">
+                    <div class="tools-menu-item active" id="menu-item-intro-varios"
+                        onclick="changeVariosView(event, 'intro')">
+                        <i class="fa-solid fa-info-circle"></i> Introducción
+                    </div>
+                    <div class="tools-menu-item" id="menu-item-balanza" onclick="changeVariosView(event, 'balanza')">
+                        <i class="fa-solid fa-scale-balanced"></i> Arreglar Balanza de Dely
+                    </div>
+                </div>
+
+                <!-- Contenedor del reproductor / contenido -->
+                <div class="tools-viewer" id="varios-viewer-content">
+                    <h3>Módulo de Varios</h3>
+                    <p>En este módulo encontrarás guías y manuales para solucionar problemas comunes y realizar
+                        mantenimientos básicos.</p>
+                    <p>Selecciona un tema del menú lateral para comenzar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- BIBLIOTECA VIEW -->
     <div id="biblioteca-view" style="display:none;">
         <div class="biblioteca-container">
@@ -1391,6 +1445,10 @@
                         document.getElementById('home-view').style.display = 'none';
                         document.getElementById('cultura-view').style.display = 'block';
                         window.scrollTo(0, 0);
+                    } else if (moduleTitle.includes('Varios')) {
+                        document.getElementById('home-view').style.display = 'none';
+                        document.getElementById('varios-view').style.display = 'block';
+                        window.scrollTo(0, 0);
                     } else {
                         alert('¡Módulo iniciado con éxito! Serás redirigido al contenido del curso.');
                     }
@@ -1403,6 +1461,10 @@
                 } else if (moduleTitle.includes('Cultura y Valores')) {
                     document.getElementById('home-view').style.display = 'none';
                     document.getElementById('cultura-view').style.display = 'block';
+                    window.scrollTo(0, 0);
+                } else if (moduleTitle.includes('Varios')) {
+                    document.getElementById('home-view').style.display = 'none';
+                    document.getElementById('varios-view').style.display = 'block';
                     window.scrollTo(0, 0);
                 } else {
                     alert('Continuando con el módulo...');
@@ -1469,6 +1531,44 @@
             document.getElementById('cultura-view').style.display = 'none';
             document.getElementById('home-view').style.display = 'block';
             window.scrollTo(0, 0);
+        }
+
+        function goBackFromVarios() {
+            document.getElementById('varios-view').style.display = 'none';
+            document.getElementById('home-view').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function changeVariosView(event, view) {
+            // Quitar clase active de todos en este submenú
+            document.getElementById('varios-view').querySelectorAll('.tools-menu-item').forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const viewer = document.getElementById('varios-viewer-content');
+
+            if (view === 'intro') {
+                viewer.innerHTML = `
+                    <h3>Módulo de Varios</h3>
+                    <p>En este módulo encontrarás guías y manuales para solucionar problemas comunes y realizar mantenimientos básicos.</p>
+                    <p>Selecciona un tema del menú lateral para comenzar.</p>
+                `;
+            } else if (view === 'balanza') {
+                viewer.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <h3>Cómo arreglar la balanza de pan</h3>
+                    </div>
+                    <p style="margin-bottom: 2rem; color:var(--text-muted);">Guía paso a paso para solucionar problemas comunes con la balanza de panadería. Reproduce el siguiente video para ver las instrucciones.</p>
+                    
+                    <div class="video-container">
+                        <!-- COLOCA AQUÍ EL LINK DE TU VIDEO DE YOUTUBE -->
+                        <iframe src="https://youtube.com/shorts/QttlYTjw7zU?feature=share" title="Arreglar Balanza de Pan" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                `;
+            }
+
+            if (view !== 'intro') {
+                viewer.innerHTML += getBtnAprendidoHTML('varios-' + view);
+            }
         }
 
         function changeToolView(event, view) {
@@ -1868,6 +1968,8 @@
         function irAInicio() {
             document.getElementById('tools-view').style.display = 'none';
             document.getElementById('biblioteca-view').style.display = 'none';
+            if (document.getElementById('cultura-view')) document.getElementById('cultura-view').style.display = 'none';
+            if (document.getElementById('varios-view')) document.getElementById('varios-view').style.display = 'none';
             document.getElementById('home-view').style.display = 'block';
             window.scrollTo(0, 0);
         }
