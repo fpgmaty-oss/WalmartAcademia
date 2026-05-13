@@ -131,6 +131,82 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Botón hamburguesa */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Menú móvil desplegable */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--primary-dark);
+            z-index: 999;
+            padding: 1rem 5%;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-lg);
+            animation: slideDown 0.25s ease;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-yellow);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* =========================================
            HERO SECTION
            ========================================= */
@@ -529,15 +605,140 @@
         @media (max-width: 768px) {
             .navbar-menu {
                 display: none;
-                /* En producción llevaría un menú hamburguesa */
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .user-profile span {
+                display: none;
+            }
+
+            .user-profile {
+                padding: 0.5rem;
+            }
+
+            .hero {
+                padding: 3.5rem 5% 4rem;
             }
 
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
             }
 
             .dashboard-stats {
-                margin-top: 2rem;
+                margin-top: 1rem;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .stat-icon {
+                width: 46px;
+                height: 46px;
+                font-size: 1.1rem;
+            }
+
+            .stat-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            /* Herramientas Digitales */
+            .tools-content {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .tools-menu-item {
+                flex: 1 1 auto;
+                font-size: 0.82rem;
+                padding: 0.6rem 0.8rem;
+                justify-content: center;
+                text-align: center;
+                transform: none !important;
+                min-width: 100px;
+            }
+
+            .tools-viewer {
+                padding: 1rem;
+            }
+
+            /* Biblioteca */
+            .biblioteca-cards {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .bib-card {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .bib-card-icon {
+                width: 52px;
+                height: 52px;
+                font-size: 1.4rem;
+            }
+
+            .pdf-frame {
+                height: 60vh;
+            }
+
+            .pdf-toolbar {
+                padding: 0.7rem 1rem;
+            }
+
+            .pdf-toolbar h4 {
+                font-size: 0.85rem;
+            }
+
+            .pdf-dl-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            /* Biblioteca header */
+            .biblioteca-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .tools-header h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
             }
         }
 
@@ -648,6 +849,7 @@
             margin: 2rem auto;
             padding: 0 5%;
         }
+
         .biblioteca-header {
             display: flex;
             align-items: center;
@@ -656,12 +858,14 @@
             border-bottom: 2px solid #eaeaea;
             padding-bottom: 1rem;
         }
+
         .biblioteca-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
+
         .bib-card {
             background: var(--white);
             border-radius: var(--radius-lg);
@@ -676,15 +880,18 @@
             transition: var(--transition);
             text-align: center;
         }
+
         .bib-card:hover {
             border-color: var(--primary-blue);
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
+
         .bib-card.active {
             border-color: var(--primary-blue);
-            background: rgba(0,113,206,0.04);
+            background: rgba(0, 113, 206, 0.04);
         }
+
         .bib-card-icon {
             width: 64px;
             height: 64px;
@@ -696,21 +903,24 @@
             font-size: 1.8rem;
             color: #fff;
         }
+
         .bib-card-title {
             font-weight: 700;
             color: var(--text-main);
             font-size: 0.95rem;
             line-height: 1.3;
         }
+
         .bib-card-tag {
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--primary-blue);
-            background: rgba(0,113,206,0.1);
+            background: rgba(0, 113, 206, 0.1);
             padding: 3px 10px;
             border-radius: 20px;
         }
+
         .pdf-viewer-wrap {
             background: var(--white);
             border-radius: var(--radius-lg);
@@ -718,7 +928,11 @@
             overflow: hidden;
             display: none;
         }
-        .pdf-viewer-wrap.visible { display: block; }
+
+        .pdf-viewer-wrap.visible {
+            display: block;
+        }
+
         .pdf-toolbar {
             display: flex;
             align-items: center;
@@ -729,6 +943,7 @@
             flex-wrap: wrap;
             gap: 0.5rem;
         }
+
         .pdf-toolbar h4 {
             font-size: 1rem;
             font-weight: 700;
@@ -736,6 +951,7 @@
             align-items: center;
             gap: 8px;
         }
+
         .pdf-dl-btn {
             display: inline-flex;
             align-items: center;
@@ -749,7 +965,12 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        .pdf-dl-btn:hover { background: var(--yellow-hover); transform: scale(1.03); }
+
+        .pdf-dl-btn:hover {
+            background: var(--yellow-hover);
+            transform: scale(1.03);
+        }
+
         .pdf-frame {
             width: 100%;
             height: 85vh;
@@ -770,12 +991,25 @@
         <ul class="navbar-menu">
             <li><a href="#" onclick="irAInicio(); return false;"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="#"><i class="fa-solid fa-book"></i> Mis Módulos</a></li>
-            <li><a href="#" onclick="abrirBiblioteca(); return false;"><i class="fa-solid fa-folder-open"></i> Biblioteca</a></li>
+            <li><a href="#" onclick="abrirBiblioteca(); return false;"><i class="fa-solid fa-folder-open"></i>
+                    Biblioteca</a></li>
         </ul>
         <div class="user-profile">
             <i class="fa-solid fa-circle-user"></i>
             <span>Nuevo Colaborador</span>
         </div>
+        <!-- Botón hamburguesa (sólo móvil) -->
+        <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Menú móvil desplegable -->
+    <nav class="mobile-menu" id="mobile-menu">
+        <a href="#" onclick="irAInicio(); closeMobileMenu(); return false;"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="#" onclick="closeMobileMenu(); return false;"><i class="fa-solid fa-book"></i> Mis Módulos</a>
+        <a href="#" onclick="abrirBiblioteca(); closeMobileMenu(); return false;"><i
+                class="fa-solid fa-folder-open"></i> Biblioteca</a>
     </nav>
 
     <div id="home-view">
@@ -976,10 +1210,13 @@
     <div id="biblioteca-view" style="display:none;">
         <div class="biblioteca-container">
             <div class="biblioteca-header">
-                <button class="btn-back" onclick="irAInicio()" title="Volver al Inicio"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="btn-back" onclick="irAInicio()" title="Volver al Inicio"><i
+                        class="fa-solid fa-arrow-left"></i></button>
                 <div>
-                    <h2 style="color:var(--primary-dark); font-size:1.6rem;"><i class="fa-solid fa-folder-open" style="color:var(--secondary-yellow); margin-right:8px;"></i>Biblioteca</h2>
-                    <p style="color:var(--text-muted); font-size:0.88rem; margin-top:2px;">Documentos y recursos de consulta del departamento.</p>
+                    <h2 style="color:var(--primary-dark); font-size:1.6rem;"><i class="fa-solid fa-folder-open"
+                            style="color:var(--secondary-yellow); margin-right:8px;"></i>Biblioteca</h2>
+                    <p style="color:var(--text-muted); font-size:0.88rem; margin-top:2px;">Documentos y recursos de
+                        consulta del departamento.</p>
                 </div>
             </div>
 
@@ -1173,6 +1410,23 @@
             document.getElementById('home-view').style.display = 'block';
             window.scrollTo(0, 0);
         }
+
+        // Menú hamburguesa
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+        }
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function (e) {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('hamburger-btn');
+            if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('open');
+            }
+        });
 
         const bibDocs = {
             glosarioPBI: {
