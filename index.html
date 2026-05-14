@@ -994,9 +994,9 @@
             <li><a href="#" onclick="abrirBiblioteca(); return false;"><i class="fa-solid fa-folder-open"></i>
                     Biblioteca</a></li>
         </ul>
-        <div class="user-profile">
+        <div class="user-profile" onclick="pedirNombre()" title="Haz clic para cambiar tu nombre">
             <i class="fa-solid fa-circle-user"></i>
-            <span>Nuevo Colaborador</span>
+            <span id="nombre-usuario">Nuevo Colaborador</span>
         </div>
         <!-- Botón hamburguesa (sólo móvil) -->
         <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menú">
@@ -1406,6 +1406,21 @@
 
     <!-- SCRIPTS -->
     <script>
+        // Manejo del nombre del usuario
+        document.addEventListener('DOMContentLoaded', () => {
+            const nombreGuardado = localStorage.getItem('nombreColaborador');
+            if (nombreGuardado) {
+                document.getElementById('nombre-usuario').innerText = 'Hola, ' + nombreGuardado;
+            }
+        });
+
+        function pedirNombre() {
+            const nombre = prompt('Por favor, ingresa tu nombre:');
+            if (nombre && nombre.trim() !== '') {
+                localStorage.setItem('nombreColaborador', nombre.trim());
+                document.getElementById('nombre-usuario').innerText = 'Hola, ' + nombre.trim();
+            }
+        }
         // Función para hacer scroll suave hasta los módulos
         function scrollToModules() {
             document.getElementById('modulos').scrollIntoView({
@@ -1594,7 +1609,7 @@
                     
                     <div class="video-container">
                         <!-- COLOCA AQUÍ EL LINK DE TU VIDEO DE YOUTUBE SOBRE BINEO -->
-                        <iframe src="https://youtube.com/embed/shorts/bV-Y7H5DsvA" title="Video Bineo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube-nocookie.com/embed/bV-Y7H5DsvA?rel=0" title="Video Bineo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
                     <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 2rem; border: 2px dashed #ccc;">
