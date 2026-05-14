@@ -1591,10 +1591,17 @@
                 viewer.innerHTML = `
                     <h3>Bineo</h3>
                     <p>En este video aprenderás lo básico sobre Bineo. Haz clic en reproducir para comenzar.</p>
-                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
+                    
+                    <div class="video-container">
+                        <!-- COLOCA AQUÍ EL LINK DE TU VIDEO DE YOUTUBE SOBRE BINEO -->
+                        <iframe src="https://youtu.be/bV-Y7H5DsvA" title="Video Bineo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 2rem; border: 2px dashed #ccc;">
                         <i class="fa-solid fa-desktop" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
                         <p><strong>Simulador del Portal</strong></p>
-                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                        <!-- COLOCA AQUÍ EL LINK AL SIMULADOR O PORTAL DE BINEO EN EL ATRIBUTO href="" -->
+                        <a href="#" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; text-decoration: none;">Abrir Simulador</a>
                     </div>
                 `;
             } else if (view === 'inventario') {
@@ -1609,12 +1616,115 @@
                 `;
             } else if (view === 'recepcion') {
                 viewer.innerHTML = `
-                    <h3>Recepcion</h3>
-                    <p>En este video aprenderás lo básico sobre Recepcion. Haz clic en reproducir para comenzar.</p>
-                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
-                        <i class="fa-solid fa-truck-ramp-box" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
-                        <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
-                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <h3>Proceso de Recepción</h3>
+                        <span style="background:var(--primary-blue); color:white; padding:4px 10px; border-radius:12px; font-size:0.85rem;">5 Pasos</span>
+                    </div>
+                    <p style="margin-bottom: 2rem; color:var(--text-muted);">A continuación se detalla el paso a paso para el proceso de recepción. Completa las instrucciones en los espacios indicados.</p>
+                    
+                    <div class="steps-container">
+                        <!-- Paso 1 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 1</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="1.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 1">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Abrir la App de Recepcion]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 2</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="2.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 2">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Seleccionar "Comenzar recepción"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 3</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="3.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 3">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Aqui colocamos el "PO o OC" que ambos significan orden de compra]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 4</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="4.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 4">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Aqui colocamos Numero de factura]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 5 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 5</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="5.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 5">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Aqui comenzamos a pistolear items que estan dentro de la facutura.<br>
+                                        -Si sale en <strong style="color: #4CAF50;">verde</strong> significa que esta bien contado el producto, si sale en <strong style="color: #F44336;">rojo</strong> es por que nos pasamos de la cantidad de la orden de compra, por ultimo si sale en <strong style="color: #000;">negro</strong> es por que faltan cajas o unidades del producto.]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Extra: Partes de una Factura -->
+                        <div class="step-card" style="background:#f4f9e9; border:1px solid #cddc39; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:#558b2f; margin-bottom:1rem; border-bottom:2px solid #8bc34a; display:inline-block; padding-bottom:0.3rem;"><i class="fa-solid fa-file-invoice" style="margin-right:8px;"></i>Extra: Partes de una Factura</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="6.5.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Partes de una Factura">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#fff; padding:1.2rem; border-radius:8px; border-left:4px solid #8bc34a;">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        <strong>Partes de una factura:</strong>
+                                        <ul style="margin-top:0.5rem; padding-left:1.5rem; margin-bottom:0;">
+                                            <li><strong style="color: #F44336;">PO</strong> [Color rojo en la imagen]</li>
+                                            <li><strong style="color: #2196F3;">Número de factura</strong> [Color azul en la imagen]</li>
+                                            <li><strong style="color: #9C27B0;">Items</strong> [Color morado en la imagen]</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 `;
             } else if (view === 'Devolucion') {
