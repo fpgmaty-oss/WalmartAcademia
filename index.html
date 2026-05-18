@@ -754,10 +754,41 @@
         .tools-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: space-between;
             margin-bottom: 2rem;
             border-bottom: 2px solid #eaeaea;
             padding-bottom: 1rem;
+        }
+
+        .tools-header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-nav-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-nav-module {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-nav-module:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
         .btn-back {
@@ -990,7 +1021,7 @@
         </div>
         <ul class="navbar-menu">
             <li><a href="#" onclick="irAInicio(); return false;"><i class="fa-solid fa-house"></i> Inicio</a></li>
-            <li><a href="#"><i class="fa-solid fa-book"></i> Mis Módulos</a></li>
+            <li><a href="#" onclick="irAModulos(); return false;"><i class="fa-solid fa-book"></i> Mis Módulos</a></li>
             <li><a href="#" onclick="abrirBiblioteca(); return false;"><i class="fa-solid fa-folder-open"></i>
                     Biblioteca</a></li>
         </ul>
@@ -1007,7 +1038,7 @@
     <!-- Menú móvil desplegable -->
     <nav class="mobile-menu" id="mobile-menu">
         <a href="#" onclick="irAInicio(); closeMobileMenu(); return false;"><i class="fa-solid fa-house"></i> Inicio</a>
-        <a href="#" onclick="closeMobileMenu(); return false;"><i class="fa-solid fa-book"></i> Mis Módulos</a>
+        <a href="#" onclick="irAModulos(); closeMobileMenu(); return false;"><i class="fa-solid fa-book"></i> Mis Módulos</a>
         <a href="#" onclick="abrirBiblioteca(); closeMobileMenu(); return false;"><i
                 class="fa-solid fa-folder-open"></i> Biblioteca</a>
     </nav>
@@ -1161,9 +1192,15 @@
     <div id="cultura-view" style="display: none;">
         <div class="tools-view-container">
             <div class="tools-header">
-                <button class="btn-back" onclick="goBackFromCultura()" title="Volver al Inicio"><i
-                        class="fa-solid fa-arrow-left"></i></button>
-                <h2>Módulo: Cultura y Valores</h2>
+                <div class="tools-header-left">
+                    <button class="btn-back" onclick="goBackFromCultura()" title="Volver al Inicio"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <h2>Módulo: Cultura y Valores</h2>
+                </div>
+                <div class="module-nav-btns">
+                    <button class="btn-nav-module" onclick="navegarModulo('tools-view')"
+                        title="Ir a Herramientas Digitales">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
             </div>
 
             <div
@@ -1281,9 +1318,17 @@
     <div id="tools-view" style="display: none;">
         <div class="tools-view-container">
             <div class="tools-header">
-                <button class="btn-back" onclick="goBackToHome()" title="Volver al Inicio"><i
-                        class="fa-solid fa-arrow-left"></i></button>
-                <h2>Módulo: Herramientas Digitales</h2>
+                <div class="tools-header-left">
+                    <button class="btn-back" onclick="goBackToHome()" title="Volver al Inicio"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <h2>Módulo: Herramientas Digitales</h2>
+                </div>
+                <div class="module-nav-btns">
+                    <button class="btn-nav-module" onclick="navegarModulo('cultura-view')"
+                        title="Ir a Cultura y Valores"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                    <button class="btn-nav-module" onclick="navegarModulo('varios-view')" title="Ir a Varios">Siguiente
+                        <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
             </div>
 
             <div class="tools-content">
@@ -1329,9 +1374,15 @@
     <div id="varios-view" style="display: none;">
         <div class="tools-view-container">
             <div class="tools-header">
-                <button class="btn-back" onclick="goBackFromVarios()" title="Volver al Inicio"><i
-                        class="fa-solid fa-arrow-left"></i></button>
-                <h2>Módulo: Varios</h2>
+                <div class="tools-header-left">
+                    <button class="btn-back" onclick="goBackFromVarios()" title="Volver al Inicio"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <h2>Módulo: Varios</h2>
+                </div>
+                <div class="module-nav-btns">
+                    <button class="btn-nav-module" onclick="navegarModulo('tools-view')"
+                        title="Ir a Herramientas Digitales"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                </div>
             </div>
 
             <div class="tools-content">
@@ -1488,9 +1539,26 @@
         }
 
         function goBackToHome() {
-            document.getElementById('tools-view').style.display = 'none';
-            document.getElementById('home-view').style.display = 'block';
-            window.scrollTo(0, 0);
+            irAInicio();
+        }
+
+        function irAModulos() {
+            const homeView = document.getElementById('home-view');
+            const isHomeHidden = homeView.style.display === 'none';
+            
+            if (isHomeHidden) {
+                irAInicio();
+            }
+            
+            setTimeout(() => {
+                const modulosSection = document.getElementById('modulos');
+                if (modulosSection) {
+                    modulosSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, isHomeHidden ? 100 : 0);
         }
 
         const aprendidos = {};
@@ -1543,14 +1611,23 @@
         }
 
         function goBackFromCultura() {
-            document.getElementById('cultura-view').style.display = 'none';
-            document.getElementById('home-view').style.display = 'block';
-            window.scrollTo(0, 0);
+            irAInicio();
         }
 
         function goBackFromVarios() {
+            irAInicio();
+        }
+
+        function navegarModulo(targetViewId) {
+            // Ocultar todas las vistas de módulos
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('cultura-view').style.display = 'none';
+            document.getElementById('tools-view').style.display = 'none';
             document.getElementById('varios-view').style.display = 'none';
-            document.getElementById('home-view').style.display = 'block';
+            document.getElementById('biblioteca-view').style.display = 'none';
+
+            // Mostrar la vista objetivo
+            document.getElementById(targetViewId).style.display = 'block';
             window.scrollTo(0, 0);
         }
 
@@ -2087,6 +2164,8 @@
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('tools-view').style.display = 'none';
             document.getElementById('biblioteca-view').style.display = 'block';
+            if (document.getElementById('cultura-view')) document.getElementById('cultura-view').style.display = 'none';
+            if (document.getElementById('varios-view')) document.getElementById('varios-view').style.display = 'none';
             window.scrollTo(0, 0);
         }
 
@@ -2096,7 +2175,7 @@
             if (document.getElementById('cultura-view')) document.getElementById('cultura-view').style.display = 'none';
             if (document.getElementById('varios-view')) document.getElementById('varios-view').style.display = 'none';
             document.getElementById('home-view').style.display = 'block';
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Menú hamburguesa
