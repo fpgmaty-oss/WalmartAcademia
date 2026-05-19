@@ -1038,7 +1038,8 @@
     <!-- Menú móvil desplegable -->
     <nav class="mobile-menu" id="mobile-menu">
         <a href="#" onclick="irAInicio(); closeMobileMenu(); return false;"><i class="fa-solid fa-house"></i> Inicio</a>
-        <a href="#" onclick="irAModulos(); closeMobileMenu(); return false;"><i class="fa-solid fa-book"></i> Mis Módulos</a>
+        <a href="#" onclick="irAModulos(); closeMobileMenu(); return false;"><i class="fa-solid fa-book"></i> Mis
+            Módulos</a>
         <a href="#" onclick="abrirBiblioteca(); closeMobileMenu(); return false;"><i
                 class="fa-solid fa-folder-open"></i> Biblioteca</a>
     </nav>
@@ -1079,32 +1080,10 @@
             </div>
         </div>
 
-        <!-- INTRO VIDEO SECTION -->
+        <!-- INTRO IMAGE SECTION -->
         <section class="intro-video" style="max-width: 800px; margin: 0 auto 3rem auto; padding: 0 1.5rem;">
-            <div class="module-card" style="box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                <div class="module-content" style="padding: 2rem; display: flex; flex-direction: column;">
-                    <div
-                        style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:1rem;">
-                        <h3 class="module-title" style="margin: 0; font-size:1.4rem;"><i class="fa-solid fa-circle-play"
-                                style="color:var(--secondary-yellow); margin-right:8px;"></i>¿Cómo funciona la página?
-                        </h3>
-                        <span class="module-tag" style="background: var(--primary-blue); color: white; margin:0;">Guía
-                            de Uso</span>
-                    </div>
-                    <p class="module-desc" style="margin-bottom: 1.5rem;">Reproduce este video en el cual te explicaré
-                        paso a paso cómo navegar por la academia y sacar el máximo provecho de todas las herramientas
-                        disponibles.</p>
-
-                    <div
-                        style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                        <!-- COLOCA AQUÍ EL LINK DE TU VIDEO DE YOUTUBE -->
-                        <iframe src="https://www.youtube-nocookie.com/embed/TU_VIDEO_AQUI?rel=0"
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                            title="¿Cómo funciona la página?"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
+            <div class="module-card" style="box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; border-radius: 12px;">
+                <img src="unnamed.jpg" alt="Bienvenida Academia" style="width: 100%; height: auto; display: block; border-radius: 12px;">
             </div>
         </section>
 
@@ -1351,6 +1330,9 @@
                         onclick="changeToolView(event, 'Devolucion')">
                         <i class="fa-solid fa-rotate-left"></i> Devolucion
                     </div>
+                    <div class="tools-menu-item" id="menu-item-modulares" onclick="changeToolView(event, 'modulares')">
+                        <i class="fa-solid fa-boxes-stacked"></i> Modulares - Sala
+                    </div>
                 </div>
 
                 <!-- Contenedor del reproductor / contenido -->
@@ -1545,11 +1527,11 @@
         function irAModulos() {
             const homeView = document.getElementById('home-view');
             const isHomeHidden = homeView.style.display === 'none';
-            
+
             if (isHomeHidden) {
                 irAInicio();
             }
-            
+
             setTimeout(() => {
                 const modulosSection = document.getElementById('modulos');
                 if (modulosSection) {
@@ -1698,12 +1680,110 @@
                 `;
             } else if (view === 'inventario') {
                 viewer.innerHTML = `
-                    <h3>SmartISP</h3>
-                    <p>En este video aprenderás lo básico sobre SmartISP. Haz clic en reproducir para comenzar.</p>
-                    <div style="background: #f4f6f8; padding: 2rem; text-align: center; border-radius: 8px; margin-top: 1rem; border: 2px dashed #ccc;">
-                        <i class="fa-solid fa-mobile-screen" style="font-size: 3rem; color: #a0aab2; margin-bottom: 1rem;"></i>
-                        <p><strong>Entorno de Pruebas (Sandbox)</strong></p>
-                        <button class="btn btn-primary" style="margin-top: 1rem;">Abrir</button>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <h3>Proceso de Smart</h3>
+                        <span style="background:var(--primary-blue); color:white; padding:4px 10px; border-radius:12px; font-size:0.85rem;">5 Pasos</span>
+                    </div>
+                    <p style="margin-bottom: 2rem; color:var(--text-muted);">A continuación se detalla el paso a paso para el proceso en Smart. Completa las instrucciones en los espacios indicados.</p>
+                    
+                    <div class="steps-container">
+                        <!-- Paso 1 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 1</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="1.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 1">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Para realizar ajustes en smart debemos entrar a Inventario perpetuo]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 2</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="2.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 2">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Luego pantalla de inventario]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 3</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="3.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 3">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <div style="color:var(--text-dark); font-size:1rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        <p style="margin:0 0 0.8rem 0; font-weight:600; color:var(--primary-dark);">Esta es la zona donde se realiza el inventario. Contamos con 3 alternativas:</p>
+                                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+                                            <li style="background: #fff; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #eaeaea; border-left: 3px solid var(--primary-blue);">
+                                                <strong style="color: var(--primary-blue); font-size: 0.95rem;"><i class="fa-solid fa-square-1" style="margin-right:4px;"></i> Primera Opción - Único Depto:</strong>
+                                                <span style="font-size:0.9rem; display:block; margin-top:2px;">Solo se puede ajustar un tipo de departamento (por ejemplo: 93, 94, etc.).</span>
+                                            </li>
+                                            <li style="background: #fff; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #eaeaea; border-left: 3px solid var(--primary-blue);">
+                                                <strong style="color: var(--primary-blue); font-size: 0.95rem;"><i class="fa-solid fa-square-2" style="margin-right:4px;"></i> Segunda Opción - Todo el Depto:</strong>
+                                                <span style="font-size:0.9rem; display:block; margin-top:2px;">Ajuste completo para todo el departamento seleccionado.</span>
+                                            </li>
+                                            <li style="background: #eef5fc; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #d0e3f7; border-left: 3px solid var(--secondary-yellow);">
+                                                <strong style="color: var(--primary-dark); font-size: 0.95rem; display:inline-flex; align-items:center; gap:5px;">
+                                                    <i class="fa-solid fa-square-3" style="color:var(--primary-blue);"></i> Tercera Opción - Inv. Múltiple:
+                                                    <span style="background: var(--secondary-yellow); color: var(--primary-dark); font-size: 0.68rem; padding: 1px 5px; border-radius: 8px; font-weight: bold;">La más utilizada</span>
+                                                </strong>
+                                                <span style="font-size:0.9rem; display:block; margin-top:2px; font-weight:500;">Permite ajustar varios departamentos de forma simultánea.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 4</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="4.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 4">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Aqui debemos scanear o digitar los items para ajustarlo, OJO la cantidad que coloquemos
+                                        es la existencia TOTAL ]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 5 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 5</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="5.jpg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Paso 5">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Este es el despliegue de teclas]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `;
             } else if (view === 'recepcion') {
@@ -2133,6 +2213,142 @@
                             </div>
                         </div>
 
+                    </div>
+                `;
+            } else if (view === 'modulares') {
+                viewer.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <h3>Modulares - Sala</h3>
+                        <span style="background:var(--primary-blue); color:white; padding:4px 10px; border-radius:12px; font-size:0.85rem;">6 Pasos</span>
+                    </div>
+                    <p style="margin-bottom: 2rem; color:var(--text-muted);">A continuación se detalla el paso a paso para el ordenamiento y estructuración de los modulares en la sala. Completa las instrucciones en los espacios indicados.</p>
+                    
+                    <div class="steps-container">
+                        <!-- Paso 1 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 1</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Modular 1.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Modular 1">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Seleccionamos la aplicacion Inventory]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 2</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Modular 2.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Modular 2">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Seleccion las tres lineas en la esquina superior izquierda]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 3</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Modular 3.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Modular 3">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Luego la opcion de "Modulares - Sala"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 4</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Modular 4.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Modular 4">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <p style="color:var(--text-dark); font-size:1.05rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        [Apretamos "Modular"]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 5 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 5</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Modular 5.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Modular 5">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <div style="color:var(--text-dark); font-size:1rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        <p style="margin:0 0 0.8rem 0; font-weight:600; color:var(--primary-dark);">Aquí tenemos 3 opciones importantes de estado:</p>
+                                        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                                            <div style="background: #fff; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #eaeaea; border-left: 3px solid #4caf50; display: flex; gap: 8px; align-items: flex-start;">
+                                                <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; font-weight: bold; padding: 2px 6px; border-radius: 10px; white-space: nowrap;">Listo / Tarde</span>
+                                                <div style="font-size: 0.88rem; color: var(--text-dark); line-height: 1.4;">
+                                                    Modulares listos para implementar. <span style="color: #c62828; font-weight: bold;">Nota:</span> Si nos pasamos de la fecha límite, quedarán marcados como <span style="background: #ffebee; color: #c62828; padding: 1px 4px; border-radius: 4px; font-weight: bold;">"Tarde"</span>.
+                                                </div>
+                                            </div>
+                                            <div style="background: #fff; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #eaeaea; border-left: 3px solid var(--primary-blue); display: flex; gap: 8px; align-items: flex-start;">
+                                                <span style="background: #e3f2fd; color: var(--primary-blue); font-size: 0.75rem; font-weight: bold; padding: 2px 6px; border-radius: 10px; white-space: nowrap;">Futuros</span>
+                                                <div style="font-size: 0.88rem; color: var(--text-dark); line-height: 1.4;">
+                                                    Son los modulares que están programados y próximos a cambiar en la sala.
+                                                </div>
+                                            </div>
+                                            <div style="background: #fff; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #eaeaea; border-left: 3px solid var(--secondary-yellow); display: flex; gap: 8px; align-items: flex-start;">
+                                                <span style="background: #fffde7; color: #f57f17; font-size: 0.75rem; font-weight: bold; padding: 2px 6px; border-radius: 10px; white-space: nowrap;">Actual</span>
+                                                <div style="font-size: 0.88rem; color: var(--text-dark); line-height: 1.4;">
+                                                    Son los modulares vigentes que están en uso actualmente sin cambios activos.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 6 -->
+                        <div class="step-card" style="background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+                            <h4 style="color:var(--primary-dark); margin-bottom:1rem; border-bottom:2px solid var(--secondary-yellow); display:inline-block; padding-bottom:0.3rem;">Paso 6</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
+                                <div style="flex:1; min-width:300px;">
+                                    <img src="Modular 6.jpeg" style="width:100%; border-radius:8px; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="Modular 6">
+                                </div>
+                                <div style="flex:1; min-width:300px; background:#f9fbfd; padding:1.2rem; border-radius:8px; border-left:4px solid var(--primary-blue);">
+                                    <div style="color:var(--text-dark); font-size:1rem; line-height:1.6; margin:0;">
+                                        <!-- ESPACIO PARA TU MENSAJE -->
+                                        <p style="margin:0 0 0.8rem 0;">Aquí ya tenemos el modular como tal. En esta pantalla se visualiza que tiene <strong style="color: var(--primary-blue); font-size: 1.05rem;">4 metros</strong> de extensión.</p>
+                                        
+                                        <div style="background: #fff; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #eaeaea; margin-bottom: 0.8rem; border-left: 3px solid var(--secondary-yellow);">
+                                            <strong style="color: var(--primary-dark); font-size: 0.9rem; display: block; margin-bottom: 0.2rem;"><i class="fa-solid fa-circle-info" style="color: var(--primary-blue); margin-right:4px;"></i> ¿Qué significa S1?</strong>
+                                            <span style="font-size:0.88rem; color:var(--text-dark);">Representa la cantidad de ítems que tiene el <strong>Metro 1</strong>.</span>
+                                        </div>
+
+                                        <div style="background: #eef5fc; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #d0e3f7; border-left: 3px solid var(--primary-blue);">
+                                            <strong style="color: var(--primary-blue); font-size: 0.9rem; display: block; margin-bottom: 0.2rem;"><i class="fa-solid fa-print" style="margin-right:4px;"></i> Sugerencia de Trabajo:</strong>
+                                            <span style="font-size:0.88rem; color:var(--text-dark);">Para trabajarlo de manera más cómoda, se recomienda presionar el botón <strong style="background: #fff; border:1px solid #ccc; padding: 1px 6px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-print"></i> Imprimir</strong> y elegir <strong>Seleccionar documentos</strong>.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `;
             } else if (view === 'glosarioPBI') {
